@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Login</title>
+    <link rel="stylesheet" type="text/css" href="/styles/main.sass.css">
+</head>
+<body>
+    <section class="header">
+        <!-- <img src="/images/bg-login-top.png"> -->
+    </section>
+
+    <section class="footer">
+        <form class="footer-box">
+            <div class="small-box">
+                <span id="user">Username</span>
+                <input type="text" id="email">
+            </div>
+
+            <div class="small-box">
+                <span id="pw">Password</span>
+                <input type="password" id="pass">
+                <div></div>
+            </div>
+
+            <div class="small-box">
+                <button name="button" id="submit-button">
+                    <div class="btn-background"></div>
+                    <div class="text" id="btn-text">Sign In</div>
+                </button>
+            </div>
+            <div id="error"></div>
+        </form>
+    </section>
+
+    <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/main.js"></script>
+</body>
+</html>
