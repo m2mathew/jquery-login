@@ -1,5 +1,5 @@
 body {
-    font-family: "Arial";
+    font-family: 'Droid Sans', sans-serif;
     margin: 0 auto;
 }
 
@@ -10,8 +10,10 @@ body {
     background-size: tile;
     padding: 2em 0 0 2em;
 
-    h1 {
+    > .header-box {
         margin-top: 0;
+        padding-top: 11em;
+        font-weight: bold;
     }
 }
 
@@ -26,13 +28,13 @@ body {
     }
 
     .small-box1 {
-        width: 20em;
+        width: 22em;
         padding-top: 10em;
         margin: 0 auto;
     }
 
     .small-box2 {
-        width: 20em;
+        width: 22em;
         padding-top: 1em;
         padding-bottom: 3em;
         margin: 0 auto;
@@ -65,11 +67,10 @@ body {
     }
 
     #user, #pw {
-        font-size: 1em;
+        font-size: 1.25em;
     }
 
     #email, #pass {
-        // margin: 1em 15em 1em 0.25em;
         border-radius: 4px;
         padding: 0.5em;
         font-size: 1.25em;
@@ -84,7 +85,7 @@ body {
 .tag-line {
     border-top: 1px solid #aaa;
     padding: 0.5em 1em;
-    font-size: 1.25em;
+    font-size: 1em;
     background-image: url(/images/bg-login-top.png);
     background-size: tile;
     padding: 1em 0 15em 0;
