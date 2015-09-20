@@ -4,77 +4,69 @@ $(document).ready(function() {
 
     var emailArray = [];
     var pwArray = [];
-    var noErrors = true;
-    var storedData = [
-        {
-            username: 'aaron@theironyard.com',
-            password: 'password123'
-        },
-        {
-            username: 'admin@google.com',
-            password: 'pandas'
-        },
-        {
-            username: 'm2mathew@me.com',
-            password: 'honeycrisp'
-        }
+    var noErrors = false;
+    var validMatch = false;
+    var users = [
+        { email: 'aaron@theironyard.com', password: 'password123' },
+        { email: 'admin@google.com', password: 'pandas' },
+        { email: 'm2mathew@me.com', password: 'honeycrisp' }
     ];
 
     // target elements
     var $email = $('#email');
     var $password = $('#pass');
     var $button = $('#submit-button');
-    var $error = $('#error');
+    var $emailErr = $('.email-error');
+    var $pwErr = $('.password-error');
 
     // create functions
     function onSubmitButton(e) {
         e.preventDefault();
 
-        emailArray.push($email);
-        console.log(emailArray[0].val());
+        $emailErr.text('');
+        $pwErr.text('');
 
-        pwArray.push($password);
-        console.log(pwArray[0].val());
+        var emailString = $email.val();
+        var passwordString = $password.val();
+        var userFound = false;
 
-        checkLength();
-        checkData();
+        if(!emailString && !passwordString) {
 
-        if(noErrors === true) {
-            window.location.href = "http://www.theironyard.com";
         }
-    }
-
-    function checkLength() {
-        if(emailArray[0].val().length < 5) {
-            $error.text('Please enter an email address before logging in.');
-            noErrors = false;
+        else if(!emailString) {
+            $emailErr.text('You must enter your email address');
+            console.log('no email');
         }
-        else if(pwArray[0].val().length < 6) {
-            $error.text('Please enter a password at least 6 digits long before logging in.');
-            noErrors = false;
-        }
-        return noErrors;
-    }
-
-    function checkData() {
-        var userMatch = false;
-        var pwMatch = false;
-
-        for(var i = 0; i < storedData.length; i++) {
-            var userCompare = emailArray[0].filter( function( element ) {
-                var passesThrough = (element === emailArray[0])
-                console.log(userCompare);
-                console.log(passesThrough);
-                return passesThrough;
-            });
+        else if(!passwordString) {
+            $pwErr.text('You must enter a password');
+            console.log('no password');
         }
 
-        if (userMatch === true || pwMatch === true) {
-            noErrors = true;
+        users.forEach(function(user, index) {
+            if(user.email !== emailString && user.email !== '') {
+                $emailErr.text('Username not found');
+                return;
+            }
+            else if(user.email === emailString && user.password !== passwordString) {
+               $pwErr.text('Incorrect password');
+               return;
+            }
+            else if(user.email === emailString && user.password === passwordString) {
+                userFound = true;
+            }
+        });
+
+        if(userFound) {
+            $emailErr.text('');
+            $pwErr.text('');
+            window.location.href = 'http://www.theironyard.com';
         }
-        return noErrors;
-    }
+    };
 
     // add event listeners
     $('.footer-box').submit(onSubmitButton);
+    // clear username input area when clicked
+    $email.click(function() {
+        $email.text('');
+    });
 });

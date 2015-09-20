@@ -6,31 +6,40 @@
 </head>
 <body>
     <section class="header">
-        <!-- <img src="/images/bg-login-top.png"> -->
+        <h1>Welcome</h1>
+        <h2>Please Login</h2>
     </section>
 
     <section class="footer">
         <form class="footer-box">
-            <div class="small-box">
+            <div class="small-box1">
                 <span id="user">Username</span>
                 <input type="text" id="email">
+                <div class="email-error"></div>
             </div>
 
-            <div class="small-box">
+            <div class="small-box2">
                 <span id="pw">Password</span>
                 <input type="password" id="pass">
-                <div></div>
+                <div class="password-error"></div>
             </div>
 
-            <div class="small-box">
+            <div class="submit-box">
                 <button name="button" id="submit-button">
                     <div class="btn-background"></div>
                     <div class="text" id="btn-text">Sign In</div>
                 </button>
             </div>
-            <div id="error"></div>
         </form>
     </section>
+    <footer class="tag-line">
+        <div>
+            <span>A creation by</span>
+            <a href="http://www.drumsensei.com">Mike Mathew</a>
+            <span>for</span>
+            <a href="http://www.theironyard.com">The Iron Yard</a>
+        </div>
+    </footer>
 
     <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/scripts/main.js"></script>
