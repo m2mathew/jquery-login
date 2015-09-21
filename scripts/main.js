@@ -22,51 +22,49 @@ $(document).ready(function() {
     // create functions
     function onSubmitButton(e) {
         e.preventDefault();
-
         $emailErr.text('');
         $pwErr.text('');
 
         var emailString = $email.val();
         var passwordString = $password.val();
-        var userFound = false;
+        var emailValid = false;
+        var passwordValid = false;
 
-        if(!emailString && !passwordString) {
-
-        }
-        else if(!emailString) {
+        if(!emailString) {
             $emailErr.text('You must enter your email address');
-            console.log('no email');
+            return;
         }
         else if(!passwordString) {
             $pwErr.text('You must enter a password');
-            console.log('no password');
+            return;
         }
 
         users.forEach(function(user, index) {
-            if(user.email !== emailString && user.email !== '') {
-                $emailErr.text('Username not found');
+            if(user.email === emailString && user.email.indexOf('@') !== -1) {
+                $emailErr.text('');
+                emailValid = true;
+            }
+            else {
+                $emailErr.text('Username not found.');
                 return;
             }
-            else if(user.email === emailString && user.password !== passwordString) {
-               $pwErr.text('Incorrect password');
-               return;
+            if(user.password === passwordString) {
+                $pwErr.text('');
+                passwordValid = true;
             }
-            else if(user.email === emailString && user.password === passwordString) {
-                userFound = true;
+            else {
+                $pwErr.text('Password is incorrect.');
+                return;
+            }
+
+            if(emailValid === true && passwordValid === true) {
+                $emailErr.text('');
+                $pwErr.text('');
+                window.location.href = 'http://www.theironyard.com';
             }
         });
-
-        if(userFound) {
-            $emailErr.text('');
-            $pwErr.text('');
-            window.location.href = 'http://www.theironyard.com';
-        }
     };
 
     // add event listeners
     $('.footer-box').submit(onSubmitButton);
-    // clear username input area when clicked
-    $email.click(function() {
-        $email.text('');
-    });
 });
