@@ -11,7 +11,7 @@
   "devDependencies": {
     "babelify": "^6.2.0",
     "browserify": "^11.0.1",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "gulp-imagemin": "^2.3.0",
     "gulp-minify-css": "^1.2.1",
     "gulp-prompt": "^0.1.2",
@@ -29,6 +29,6 @@
     "watchify": "^3.3.1"
   },
   "dependencies": {
-    "jquery": "^2.1.4"
+    "jquery": "^3.0.0"
   }
 }

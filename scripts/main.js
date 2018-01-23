@@ -60,7 +60,7 @@ $(document).ready(function() {
             if(emailValid === true && passwordValid === true) {
                 $emailErr.text('');
                 $pwErr.text('');
-                window.location.href = 'http://www.theironyard.com';
+                window.location.href = 'http://drumsensei.com';
             }
         });
     };
